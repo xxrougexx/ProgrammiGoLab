@@ -4,19 +4,23 @@ import "fmt"
 
 func main() {
   var x, max, somma int
+  var stringa string
+  fmt.Println("Inserisci numeri (>-1): ")
   for {
-    fmt.Print("Inserisci numero (>-1): ")
     fmt.Scan(&x)
-    somma += x
     if x == -1 {
-      fmt.Print("La somma di tutti i valori letti e': ", somma)
       break
     }
-    if max <= x {
+    somma += x
+    if max == 0 {
       max = x
-      fmt.Println("+")
+    } else if max <= x {
+      max = x
+      stringa += "+"
     } else {
-      fmt.Println("-")
+      stringa += "-"
     }
   }
+  fmt.Println(stringa)
+  fmt.Print("La somma di tutti i valori letti e': ", somma)
 }
